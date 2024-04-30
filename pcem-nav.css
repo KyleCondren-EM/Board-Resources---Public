@@ -333,8 +333,9 @@ h6 {
     border-right: 3px solid var(--pc-primary-yellow) !important; /* Make sure this is visible */
 }
 
-.pcem-table tbody tr:last-child td {
+.pcem-table tbody tr:last-child {
     border-bottom: 3px solid var(--pc-primary-yellow) !important; /* Make sure this is visible */
+    background-color: yellow !important;
 }
 
 .testing {
