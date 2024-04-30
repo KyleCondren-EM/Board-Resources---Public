@@ -337,6 +337,10 @@ h6 {
     border-bottom: 3px solid var(--pc-primary-yellow) !important; /* Make sure this is visible */
 }
 
+.testing {
+    border-left: 3px solid var(--pc-primary-yellow) !important; /* Make sure this is visible */
+}
+
 /* ---------------------------------------------------
     MEDIA QUERIES
 ----------------------------------------------------- */
