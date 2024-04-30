@@ -92,27 +92,27 @@
 }
 
 .pill-green {
-  background-color: #4aa564;
+  background-color: var(--pc-primary-green);
 }
 
 .pill-red {
-  background-color: #cd2026;
+  background-color: var(--pc-primary-red);
 }
 
 .pill-orange {
-  background-color: #f9c642;
+  background-color: var(--pc-primary-orange);
 }
 
 .pill-blue {
-  background-color: #8ba6ca;
+  background-color: var(--pc-primary-blue);
 }
 
 .pill-lblue {
-  background-color: #dce4ef;
+  background-color: var(--pc-primary-lblue);
 }
 
 .pill-dblue {
-  background-color: #112e51;
+  background-color: var(--pc-primary-dark-blue);
 }
 
 .pill-grey {
