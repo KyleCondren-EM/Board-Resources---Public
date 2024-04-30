@@ -1,0 +1,966 @@
+/***************************************************************************
+*             PROPERTY OF PINELLAS COUNTY EMERGENCY MANAGEMENT             *
+*            WRITTEN BY: KYLE J CONDREN - APPLICATION DEVELOPER            *
+***************************************************************************/
+/* <link rel="stylesheet" boardresource="pcem-nav.css"/> */
+/* non-prod: <link rel="stylesheet" href="https://webeoctraining.pinellascounty.org/eoc7/boards/getboardresource.ashx?viewid=4696&amp;boardresourceid=1021"/> */
+/* prod: <link rel="stylesheet" href="../"/> */
+
+/* ---------------------------------------------------
+    IMPORTS
+----------------------------------------------------- */
+/*font awesome*/
+/* @import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"; */
+/*poppins*/
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/*truculenta*/
+@import url('https://fonts.googleapis.com/css2?family=Federo&family=Truculenta:opsz,wdth,wght@12..72,75..125,100..900&display=swap');
+/*inter*/
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* ---------------------------------------------------
+    GLOBAL STYLES
+----------------------------------------------------- */
+
+:root {
+    font-size: 16px !important;
+    /* font-family: 'Open Sans' !important; */
+    /* font-family: 'Poppins', sans-serif !important; */
+    /* font-family: "Truculenta", sans-serif !important; */
+    font-family: "Inter", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 550 !important;
+    font-style: normal;
+    font-variation-settings: var(--truculenta-normal);
+    --text-primary: #b6b6b6;
+    --text-secondary: #ececec;
+    --bg-primary: #185a7d;
+    --bg-secondary: #1890ff;
+    --transition-speed: 600ms;
+
+    --pc-primary-blue: rgb(47, 74, 137);
+    --pc-primary-dark-blue: rgb(0, 55, 100);
+    --pc-primary-yellow: rgb(243, 213, 43);
+    --pc-primary-red: rgb(198, 0, 54);
+    --pc-primary-green: rgb(74, 165, 100);
+
+    --pc-secondary-blue: #662D91;
+    --pc-secondary-red: #EF4136;
+    --pc-secondary-green: #006838;
+    --pc-secondary-grey: #CCCCCC;
+    --pc-secondary-orange: #FDB515;
+
+    --pc-t50-primary-blue: #97A4C4;
+    --pc-t50-primary-dark-blue: #809BB1;
+    --pc-t20-primary-blue: #D5DBE7;
+    --pc-t20-primary-dark-blue: #CCD7E0;
+
+    --pc-blue: rgb(0, 55, 100);
+    --pc-blue-75percent: #CCD7E0;
+    --pc-lblue: #CCD7E0;
+    --pc-yellow: rgb(243, 213, 43);
+    --pc-red: rgb(198, 0, 54);
+    --truculenta-condensed: "wdth" 75;
+    --truculenta-semicondensed: "wdth" 87.5;
+    --truculenta-normal: "wdth" 100;
+    --truculenta-semiexpanded: "wdth" 112.5;
+    --truculenta-expanded: "wdth" 125;
+
+}
+
+.nostyle {
+    background-color: transparent !important;
+}
+
+.scrollable-area > div {
+    overflow: visible;
+}
+
+.blurred-background {
+    color: black;
+    background-color: rgba(204, 215, 224, 0.2) !important; /* --pc-t20-primary-dark-blue */
+    background: transparent !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.blurred-background .emnavbar-nav {
+    box-shadow: 10px 4rem 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+.blurred-background .navbar {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1) !important;
+}
+
+nav.navbar.navbar-default.navbar-expand-lg.blurred-background {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1) !important;
+    position: sticky !important;
+    /* margin: 0 -15px; */
+}
+
+.modal-content {
+    background-color: var(--pc-t20-primary-dark-blue) !important;
+}
+
+.horizontal-line-break {
+    border: 1px solid var(--pc-primary-dark-blue) !important;
+}
+
+main {
+    margin-left: 4rem;
+}
+
+main.maindetails {
+    margin-left: 0 !important;
+}
+
+nav,
+nav h4 {
+    /* font-family: 'Poppins', sans-serif !important; */
+    /* font-family: "Truculenta", sans-serif !important; */
+    font-family: "Inter", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 750;
+    font-style: normal;
+    font-variation-settings: var(--truculenta-semiexpanded);
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* font-family: 'Poppins', sans-serif !important; */
+    /* font-family: "Truculenta", sans-serif !important; */
+    font-family: "Inter", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: var(--truculenta-normal);
+    background: var(--pc-t20-primary-dark-blue) !important;
+}
+
+body::-webkit-scrollbar,
+.scrollable-area > div::-webkit-scrollbar,
+.scrollable-area::-webkit-scrollbar {
+    width: 0.75rem;
+}
+
+body::-webkit-scrollbar-track,
+.scrollable-area > div::-webkit-scrollbar-track,
+.scrollable-area::-webkit-scrollbar-track  {
+    background: var(--pc-blue-75percent);
+}
+
+body::-webkit-scrollbar-thumb,
+.scrollable-area > div::-webkit-scrollbar-thumb,
+.scrollable-area::-webkit-scrollbar-thumb  {
+    background: var(--pc-primary-dark-blue);
+    border-radius: 1rem;
+}
+
+.emnavbar {
+    position: fixed;
+    z-index: 1000;
+    transition: width 200ms ease;
+}
+
+.navbar img {
+    display: none;
+}
+
+.emnavbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    gap: 4px;;
+}
+
+.emnav-item {
+    width: 100%;
+    text-align: left;
+}
+
+.emnav-item:last-child {
+    margin-top: auto;
+}
+
+.emnav-link {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    color: var(--pc-primary-dark-blue);
+    text-decoration: none;
+    /* transition: background-color 0.5s; */
+    border-radius: 2rem;
+}
+
+.emnav-link:hover {
+    background-color: var(--pc-primary-red);
+    color: var(--pc-primary-yellow);
+    font-weight: 900;
+}
+
+.current-page {
+    background-color: var(--pc-red);
+}
+
+.current-page i,
+.current-page span {
+    color: var(--pc-primary-yellow);
+    font-weight: 900;
+}
+
+.emlink-text {
+    margin-left: 1rem;
+    font-weight: 700 !important;
+}
+
+.emnav-link i,
+.emnav-link img {
+    min-width: 2rem;
+    margin: 0 1.25rem;
+    font-size: 1.25em !important;
+}
+
+.fa-primary {
+    color: #ff7eee;
+}
+
+.fa-secondary {
+    color: #df49a6;
+}
+
+.fa-primary,
+.fa-secondary {
+    transition: var(--transition-speed);
+}
+
+.emlogo {
+    text-align: center;
+    margin: 0;
+    padding: 0.5rem 0 0.5rem 0;
+    width: 100%;
+    border-radius: 0 0 2rem 0;
+}
+
+#sidebar-sm-logo {
+    width: 4rem;
+}
+
+.navbar {
+    color: black;
+}
+
+.emnavbar:hover .navbar {
+    margin-left: 16rem;
+}
+
+.emnav-item i {
+    transition: width transform 0.3s;
+}
+
+.emnav-item:hover i {
+    transform: translateY(-5px);
+    animation: bounce 1.5s infinite;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    /* font-family: 'Poppins', sans-serif !important; */
+    /* font-family: "Truculenta", sans-serif !important; */
+    font-family: "Inter", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings: var(--truculenta-normal);
+}
+
+.dst-list-view>.row {
+    padding-top: calc(var(--bs-gutter-x) * .5);
+}
+
+.col-0 {
+    min-width: 0 !important;
+    padding: 0 !important;
+}
+
+.pcem-table {
+    background-color: transparent !important;
+    border-collapse: separate; /* Ensures borders are handled as separate boxes */
+    border-spacing: 0; /* Removes default spacing between borders in table */
+    border: 3px solid var(--pc-t20-primary-dark-blue);
+    border-radius: 1rem; /* Rounded corners for the entire table */
+}
+
+.pcem-table th {
+    background-color: var(--pc-primary-dark-blue) !important;
+    color: var(--pc-primary-yellow) !important;
+    padding: .3rem;
+    /* border-top: 3px solid var(--pc-t20-primary-dark-blue);
+    border-bottom: 3px solid var(--pc-t20-primary-dark-blue); */
+}
+
+.pcem-table td {
+    padding: .3rem;
+}
+
+.pcem-table th:first-child {
+    border-radius: 1rem 0 0 0;
+}
+
+.pcem-table th:last-child {
+    border-radius: 0 1rem 0 0;
+}
+
+.pcem-table tbody tr:nth-of-type(odd) {
+    background-color: #809bb170 !important;
+}
+
+.pcem-table tbody tr:hover {
+    background-color: var(--pc-t50-primary-dark-blue) !important;
+}
+
+.pcem-table tr td:not([hidden]):first-child {
+    border-left: 3px solid var(--pc-t20-primary-yellow) !important; /* Make sure this is visible */
+}
+
+.pcem-table tr td:not([hidden]):last-child {
+    border-right: 3px solid var(--pc-t20-primary-yellow) !important; /* Make sure this is visible */
+}
+
+.pcem-table tr:last-child td {
+    border-bottom: 3px solid var(--pc-t20-primary-yellow) !important; /* Make sure this is visible */
+}
+
+
+.pcem-table tbody tr td:first-of-type {
+    background-color: yellow !important;
+}
+
+/* ---------------------------------------------------
+    MEDIA QUERIES
+----------------------------------------------------- */
+/* Small screens */
+@media only screen and (max-width: 700px) {
+    main {
+        margin: 5vh 0;
+    }
+
+    main div .container-fluid {
+        padding: 0;
+    }
+
+    .navbar {
+        display: none;
+    }
+
+    .emnavbar {
+        bottom: 0;
+        width: 100vw;
+        height: 5vw;
+    }
+
+    .emlogo {
+        display: none;
+    }
+
+    .emnavbar-nav {
+        flex-direction: row;
+    }
+
+    .emnav-link {
+        justify-content: center;
+        height: 5vw;
+    }
+
+    .emnavbar .emlink-text {
+        display: none;
+    }
+
+    .btn-name {
+        display: none;
+    }
+
+    footer {
+        top: 0;
+        position: fixed;
+        width: 100%;
+        height: 2rem;
+        left: 0;
+        justify-content: space-around;
+    }
+
+    th,
+    td {
+        font-size: 12px !important;
+    }
+
+    #dashboard-card {
+        display: none;
+    }
+}
+
+/* Large screens */
+@media only screen and (min-width: 700px) {
+    .emnavbar {
+        top: 0;
+        width: 4rem;
+        height: 100vh;
+    }
+
+    .emnavbar:hover {
+        width: 16rem;
+    }
+
+    .emnavbar .emlink-text {
+        opacity: 0;
+    }
+
+    .emnavbar:hover .emlink-text {
+        opacity: 1;
+        transition: width var(--transition-speed);
+    }
+
+    .emnavbar:hover .emlogo img {
+        text-align: center;
+    }    
+
+    footer {
+        display: none !important;
+    }
+}
+
+.btn-outline-pcem {
+    color: var(--pc-blue);
+    border: 1px solid var(--pc-blue);
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.btn-outline-pcem:hover {
+    color: var(--pc-yellow) !important;
+    background-color: var(--pc-primary-red) !important;
+    border: 0px solid var(--pc-primary-dark-blue) !important;
+}
+
+.border-spin,
+.border-spin-white,
+.border-spin-black {
+    position: relative;
+    overflow: hidden !important;
+    border: 0px !important;
+    box-shadow: 0 0px 5px 4px rgba(255, 255, 255, .25) !important;
+}
+
+.emnav-link {
+    position: relative;
+    overflow: hidden !important;
+    border: 0px !important;
+}
+
+.border-spin > i,
+.border-spin-white > i,
+.border-spin-black > i,
+.emnav-link > i
+.border-spin > span,
+.border-spin-white > span,
+.border-spin-black > span,
+.emnav-link > span {
+    position: relative;
+    z-index: 10 !important;
+    padding: 0.15rem 0;
+}
+
+.border-spin::before,
+.border-spin-white::before,
+.border-spin-black::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    top: 0;
+    left: 0;
+    transition: all .25s;
+}
+
+.emnav-link::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+}
+
+.border-spin-white:hover::before {
+    background-color: white;
+}
+
+.border-spin:hover::before,
+.border-spin-black:hover::before {
+    background-color: black;
+}
+
+.emnav-link:hover::before {
+    background-color: var(--pc-primary-yellow);
+}
+
+.border-spin::before,
+.border-spin-white:hover::before,
+.border-spin-black:hover::before,
+.emnav-link:hover::before {
+    top: 25%;
+    height: 50%;
+    animation: simpleRotate 2s linear infinite;
+}
+
+.border-spin::after,
+.border-spin-white::after,
+.border-spin-black::after {
+    position: absolute !important;
+    content: '' !important;
+    inset: 2.5px !important;
+    background-color: inherit !important;
+    border-radius: 1rem !important;
+}
+
+.emnav-link::after {
+    position: absolute !important;
+    content: '' !important;
+    inset: 4px !important;
+    background-color: inherit !important;
+    border-radius: 2rem !important;
+}
+
+.emnav-item .current-page i {
+    color: var(--pc-primary-yellow);
+    z-index: 1000;
+}
+
+.emnav-item:hover i {
+    color: var(--pc-primary-yellow);
+    z-index: 1000;
+}
+
+/* ---------------------------------------------------
+    UNIVERSAL CLASSES
+----------------------------------------------------- */
+
+.bg-pcem-blue {
+    background-color: var(--pc-primary-blue) !important;
+}
+
+.bg-pcem-red {
+    background-color: var(--pc-primary-red) !important;
+}
+
+.bg-pcem-yellow {
+    background-color: var(--pc-primary-yellow) !important;
+}
+
+.bg-pcem-green {
+    background-color: var(--pc-primary-green) !important;
+}
+
+.bg-pcem-lblue {
+    background-color: var(--pc-t20-primary-dark-blue) !important;
+}
+
+.bg-pcem-mblue {
+    background-color: var(--pc-t50-primary-dark-blue) !important;
+}
+
+.text-pcem-blue {
+    color: var(--pc-primary-blue) !important;
+}
+
+.text-pcem-red {
+    color: var(--pc-primary-red) !important;
+}
+
+.text-pcem-yellow {
+    color: var(--pc-primary-yellow) !important;
+}
+
+.text-pcem-green {
+    color: var(--pc-primary-green) !important;
+}
+
+.text-pcem-lblue {
+    color: var(--pc-t20-primary-dark-blue) !important;
+}
+
+.text-pcem-mblue {
+    color: var(--pc-t50-primary-dark-blue) !important;
+}
+
+.br-1rem {
+    border-radius: 1rem !important;
+}
+
+.br-2rem {
+    border-radius: 2rem !important;
+}
+
+.br-3rem {
+    border-radius: 3rem !important;
+}
+
+.br-4rem {
+    border-radius: 4rem !important;
+}
+
+.p-1rem {
+    padding: 1rem !important;
+}
+
+.p-2rem {
+    padding: 2rem !important;
+}
+
+.p-3rem {
+    padding: 3rem !important;
+}
+
+.p-4rem {
+    padding: 4rem !important;
+}
+
+.px-1rem {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+}
+
+.px-2rem {
+    padding-left: 2rem !important;
+    padding-right: 2rem !important;
+}
+
+.px-3rem {
+    padding-left: 3rem !important;
+    padding-right: 3rem !important;
+}
+
+.px-4rem {
+    padding-left: 4rem !important;
+    padding-right: 4rem !important;
+}
+
+.py-1rem {
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.py-2rem {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+}
+
+.py-3rem {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.py-4rem {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+}
+
+.m-1rem {
+    margin: 1rem !important;
+}
+
+.m-2rem {
+    margin: 2rem !important;
+}
+
+.m-3rem {
+    margin: 3rem !important;
+}
+
+.m-4rem {
+    margin: 4rem !important;
+}
+
+.mx-1rem {
+    margin-left: 1rem !important;
+    margin-right: 1rem !important;
+}
+
+.mx-2rem {
+    margin-left: 2rem !important;
+    margin-right: 2rem !important;
+}
+
+.mx-3rem {
+    margin-left: 3rem !important;
+    margin-right: 3rem !important;
+}
+
+.mx-4rem {
+    margin-left: 4rem !important;
+    margin-right: 4rem !important;
+}
+
+.my-1rem {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.my-2rem {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.my-3rem {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
+.my-4rem {
+    margin-top: 4rem !important;
+    margin-bottom: 4rem !important;
+}
+
+/* ---------------------------------------------------
+    ANIMATIONS
+----------------------------------------------------- */
+/* Bounce Animation */
+@keyframes bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes rotateCounterclockwise {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes simpleRotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes hue-rotate {
+    50% {
+        filter: hue-rotate(360deg)
+    }
+}
+
+/* ---------------------------------------------------
+    FONT CLASSES
+----------------------------------------------------- */
+/* Inter */
+.inter-thin {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-light {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-normal {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-medium {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-semibold {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-bold {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-xbold {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+.inter-black {
+    font-family: "Poppins", sans-serif !important;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-variation-settings:
+        "slnt" 0;
+}
+
+/* Poppins */
+.poppins-thin {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.poppins-thin-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.poppins-extralight {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.poppins-extralight-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 200;
+    font-style: italic;
+}
+
+.poppins-light {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.poppins-light-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.poppins-regular {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.poppins-regular-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.poppins-medium {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 500;
+    font-style: normal;
+}
+
+.poppins-medium-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 500;
+    font-style: italic;
+}
+
+.poppins-semibold {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.poppins-semibold-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.poppins-bold {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.poppins-bold-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.poppins-extrabold {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 800;
+    font-style: normal;
+}
+
+.poppins-extrabold-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 800;
+    font-style: italic;
+}
+
+.poppins-black {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.poppins-black-italic {
+    font-family: "Poppins", sans-serif !important;
+    font-weight: 900;
+    font-style: italic;
+}

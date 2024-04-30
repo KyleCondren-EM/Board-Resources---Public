@@ -1,0 +1,87 @@
+/***************************************************************************
+*             PROPERTY OF PINELLAS COUNTY EMERGENCY MANAGEMENT             *
+*            WRITTEN BY: KYLE J CONDREN - APPLICATION DEVELOPER            *
+***************************************************************************/
+/* <link rel="stylesheet" boardresource="pcem-info.css"/> */
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+
+.poc-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 2px dashed black;
+  border-radius: 1rem;
+  margin: 1rem;
+  padding: 0.5rem;
+  line-height: 2rem;
+}
+
+.poc-container:first-child {
+  margin-top: 0;
+}
+
+.contact-header {
+  flex-direction: column;
+}
+
+.contact-header,
+.contact-row {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+  flex-wrap: wrap;
+}
+
+.contact-header span:first-child {
+  font-size: 38px;
+  font-weight: 500;
+  margin: 0;
+  letter-spacing: -2px;
+  text-align: center;
+}
+
+.contact-header span:nth-child(2) {
+  font-size: 14px;
+  font-weight: 400;
+  font-style: italic;
+  margin: 0;
+  color: rgba(0, 0, 0, .54);
+  text-align: center;
+}
+
+.contact-row div {
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: nowrap;
+}
+
+.contact-row div span:first-child {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.contact-row div span:nth-child(2) {
+  font-size: 20px;
+}
+
+.horizontal-line-break {
+  width: 100%;
+  margin: 0.3rem 0;
+}
+
+/* Small screens */
+@media only screen and (max-width: 700px) {
+  .contact-header span:first-child {
+    letter-spacing: -2px;
+  }
+}

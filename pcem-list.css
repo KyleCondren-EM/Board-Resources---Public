@@ -1,0 +1,130 @@
+/***************************************************************************
+*             PROPERTY OF PINELLAS COUNTY EMERGENCY MANAGEMENT             *
+*            WRITTEN BY: KYLE J CONDREN - APPLICATION DEVELOPER            *
+***************************************************************************/
+/* <link rel="stylesheet" boardresource="pcem-list.css"/> */
+
+/* ----- new styles ----- */
+/* table {
+  font-weight: 550 !important;
+  border: 0 !important;
+  background-color: lightgray !important;
+} */
+
+.pcem-orangerow {
+  background-color: rgba(253, 184, 30, 0.85) !important;
+  color: white !important;
+}
+
+.pcem-greenrow {
+  background-color: rgba(46, 133, 64, 0.85) !important;
+  color: white !important;
+}
+
+.pcem-redrow {
+  background-color: rgba(227, 28, 61, 0.85) !important;
+  color: white !important;
+}
+
+.pcem-orangerow:hover {
+  background-color: rgba(253, 184, 30, 0.5) !important;
+  color: white !important;
+}
+
+.pcem-greenrow:hover {
+  background-color: rgba(46, 133, 64, 0.5) !important;
+  color: white !important;
+}
+
+.pcem-redrow:hover {
+  background-color: rgba(227, 28, 61, 0.5) !important;
+  color: white !important;
+}
+
+.outcome-btn {
+  color: black !important;
+  border-radius: 1rem !important;
+}
+
+.table th,
+.table td {
+  border-top: 0;
+}
+
+/* ----- old styles ----- */
+.underline {
+  text-decoration: underline;
+}
+
+.v-align {
+  align-items: center !important;
+}
+
+.h-align {
+  justify-content: center !important;
+}
+
+.action-btn {
+  margin: 0 !important;
+  font-size: 12px !important;
+}
+
+.badge-sm {
+  padding: .3rem .5rem !important;
+  font-size: .7rem !important;
+}
+
+.pill-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pill-container span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  color: white;
+  border-radius: 1rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 14px;
+}
+
+.pill-green {
+  background-color: #4aa564;
+}
+
+.pill-red {
+  background-color: #cd2026;
+}
+
+.pill-orange {
+  background-color: #f9c642;
+}
+
+.pill-blue {
+  background-color: #8ba6ca;
+}
+
+.pill-lblue {
+  background-color: #dce4ef;
+}
+
+.pill-dblue {
+  background-color: #112e51;
+}
+
+.pill-grey {
+  background-color: #aeb0b5;
+}
+
+.attachment img {
+  display: none;
+}
+
+@media only screen and (max-width: 700px) {
+  .mobile-drop {
+    display: none;
+  }
+}

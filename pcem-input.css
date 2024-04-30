@@ -1,0 +1,36 @@
+/***************************************************************************
+*             PROPERTY OF PINELLAS COUNTY EMERGENCY MANAGEMENT             *
+*            WRITTEN BY: KYLE J CONDREN - APPLICATION DEVELOPER            *
+***************************************************************************/
+/* <link rel="stylesheet" boardresource="pcem-input.css"/> */
+
+span.input-group button {
+  margin: 0;
+  padding: 0 1rem;
+}
+
+span.input-group button.group-append {
+  border-radius: 0 5px 5px 0;
+}
+
+span.input-group button.group-prepend {
+  border-radius: 5px 0 0 5px;
+}
+
+/* .navbar {
+  margin-left: 5rem !important;
+} */
+
+#navTextDiv {
+  padding: 5px 0 !important;
+}
+
+#navHeader {
+  font-size: 1.3rem !important;
+  font-weight: 700 !important;
+}
+
+#navSubHeader {
+  font-size: .75rem !important;
+  font-weight: 700 !important;
+}
